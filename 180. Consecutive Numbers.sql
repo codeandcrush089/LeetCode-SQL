@@ -1,0 +1,16 @@
+SELECT
+    -- Select the distinct number that appears consecutively three times
+    DISTINCT L1.num AS ConsecutiveNums
+FROM
+    Logs L1,
+    Logs L2,
+    Logs L3
+WHERE
+    -- L2 is the row immediately following L1 (id + 1)
+    L1.id = L2.id - 1
+    -- L3 is the row immediately following L2 (id + 2 relative to L1)
+    AND L2.id = L3.id - 1
+    -- Check that the number in L1 is the same as the number in L2
+    AND L1.num = L2.num
+    -- Check that the number in L2 is the same as the number in L3
+    AND L2.num = L3.num;
