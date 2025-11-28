@@ -17,4 +17,3 @@ BEGIN
       LIMIT 1 OFFSET offset_val
   );
 END
-
