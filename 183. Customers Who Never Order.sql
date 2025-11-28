@@ -1,0 +1,11 @@
+SELECT
+    C.name AS Customers
+FROM
+    Customers C
+-- Start with all customers on the left side
+LEFT JOIN
+    Orders O ON C.id = O.customerId
+-- Filter to keep only those rows where there was NO matching order.
+-- When a customer has no orders, the columns from the Orders table (O) will be NULL.
+WHERE
+    O.id IS NULL;
