@@ -1,0 +1,10 @@
+SELECT
+    email AS Email
+FROM
+    Person
+-- Group all records by the email address
+GROUP BY
+    email
+-- Filter the groups where the count of records (emails) is greater than 1
+HAVING
+    COUNT(email) > 1;
